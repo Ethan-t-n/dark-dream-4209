@@ -1,0 +1,12 @@
+<h1>Ingredients Index Page</h1>
+
+<% @ingredients.each do |ingredient| %>
+    <div id="ingredients-<%= ingredient.id %>">
+        <ul>
+            <li><%= "Ingredient Name: #{ingredient.name}" %></li>
+            <ul>
+                <li><%= "This Ingredient is for: #{ingredient.total_recipes} recipes" %></li>
+            </ul>
+        </ul>
+    </div>
+<% end %>
