@@ -7,9 +7,9 @@ RSpec.describe "recipes index page", type: :feature do
 
 
       ramen = Recipe.create!(name: "Ramen", complexity: 3, genre: "Japanese")
-      noodles = spaghetti.ingredients.create!(name:'Noodles' , cost: 8)
-      broth = spaghetti.ingredients.create!(name:'Broth' , cost: 9)
-      tofu = spaghetti.ingredients.create!(name:'Tofu' , cost: 10)
+      noodles = ramen.ingredients.create!(name:'Noodles' , cost: 8)
+      broth = ramen.ingredients.create!(name:'Broth' , cost: 9)
+      tofu = ramen.ingredients.create!(name:'Tofu' , cost: 10)
 
       visit '/ingredients'
 
@@ -48,31 +48,31 @@ RSpec.describe "recipes index page", type: :feature do
     visit '/ingredients'
 
     within "#ingredients-#{pasta.id}" do
-        expect(page).to have_content(1)
+        expect(page).to have_content("Pasta: 1")
     end
 
     within "#ingredients-#{sauce.id}" do
-        expect(page).to have_content(1)
+        expect(page).to have_content("Sauce: 1")
     end
 
     within "#ingredients-#{cheese.id}" do
-        expect(page).to have_content(1)
+        expect(page).to have_content("Cheese: 1")
     end
 
     within "#ingredients-#{noodles.id}" do
-        expect(page).to have_content(1)
+        expect(page).to have_content("Noodles: 1")
     end
 
     within "#ingredients-#{broth.id}" do
-        expect(page).to have_content(1)
+        expect(page).to have_content("Broth: 1")
     end
 
     within "#ingredients-#{cheese.id}" do
-        expect(page).to have_content(1)
+        expect(page).to have_content("Cheese: 1")
     end
 
     within "#ingredients-#{egg.id}" do
-        expect(page).to have_content(1)
+        expect(page).to have_content("Egg: 1")
     end
   end
 end
